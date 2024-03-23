@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum of Elements in 2 Arrays</title>
+</head>
+<body>
+  <div style="text-align: center;">
+    <h1 style="background-color:rgb(92, 91, 91);">SUM OF ELEMENTS IN 2 ARRAYS</h1>
+    <div>
+      <label for="arrayInput1">Enter elements of Array 1 separated by commas (,):</label>
+      <input type="text" id="arrayInput1">
+    </div>
+    <div>
+      <label for="arrayInput2">Enter elements of Array 2 separated by commas (,):</label>
+      <input type="text" id="arrayInput2">
+    </div>
+    <button onclick="calculateSum()">Calculate Sum</button>
+    <div id="resultContainer" style="background-color: rgb(255, 188, 188); margin-top: 20px; padding: 10px;"></div>
+  </div>
+
+  <script>
+    function Sum(a1, a2) {
+      let res = 0;
+      for (let i = 0; i < a1.length; i++) {
+        const x = a1[i];
+        const y = a2[i];
+        let val = x + y;
+        res += val;
+      }
+      return res;
+    }
+
+    function calculateSum() {
+      const input1 = document.getElementById('arrayInput1').value;
+      const array1 = input1.split(",").map(Number);
+      const input2 = document.getElementById('arrayInput2').value;
+      const array2 = input2.split(",").map(Number);
+      const res = Sum(array1, array2);
+      const resultContainer = document.getElementById('resultContainer');
+      resultContainer.innerHTML = '<h2 style="text-align: center;">Result is: ' + res + '</h2>';
+    }
+  </script>
+</body>
+</html>

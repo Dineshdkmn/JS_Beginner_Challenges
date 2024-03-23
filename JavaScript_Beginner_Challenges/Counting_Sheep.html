@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Counting Sheep</title>
+</head>
+<body>
+    <div id="container" style="text-align: center;">
+        <h1 style="background-color:rgb(147, 146, 145);">Counting Sheep</h1>
+        <div>
+            <label for="sheepInput">Enter true if the sheep is present else false separated by commas:</label>
+            <input type="text" id="sheepInput">
+            <button onclick="countSheep()">Count</button>
+        </div>
+        <div id="resultContainer"></div>
+    </div>
+
+    <script>
+        function countSheep() {
+            const input = document.getElementById("sheepInput").value;
+            const array = input.split(",");
+            const res = sheep(array);
+            document.getElementById("resultContainer").innerHTML = '<h2 style="background-color: rgb(255, 188, 188);">Result is: ' + res + '</h2>';
+        }
+
+        function sheep(arr) {
+            let total = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].trim() === 'true') {
+                    total += 1;
+                }
+            }
+            return total;
+        }
+    </script>
+</body>
+</html>

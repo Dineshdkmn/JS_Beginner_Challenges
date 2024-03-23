@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cat and Dog Years</title>
+</head>
+<body>
+  <div style="width: 50%; margin: auto;">
+    <h1 style="background-color:rgb(142, 141, 140); text-align: center;">CAT AND DOG YEARS</h1>
+    <div>
+      <label for="humanYears">Enter human years:</label>
+      <input type="number" id="humanYears" placeholder="Enter human years">
+      <button onclick="calculateYears()">Calculate</button>
+    </div>
+    <div id="resultContainer" style="margin-top: 20px;"></div>
+  </div>
+
+  <script>
+    function year(x) {
+      let cage;
+      let dage;
+      if (x == 1) {
+        return [x, 15, 15];
+      }
+      if (x == 2) {
+        return [x, 24, 24];
+      }
+
+      const excessyear = x - 2;
+      const extracage = excessyear * 4;
+      const extradage = excessyear * 5;
+      return [x, 24 + extracage, 24 + extradage];
+    }
+
+    function calculateYears() {
+      const humanYearsInput = document.getElementById("humanYears");
+      const x = parseInt(humanYearsInput.value);
+
+      if (isNaN(x) || x <= 0) {
+        alert("Please enter a valid positive number for human years.");
+        return;
+      }
+
+      const res = year(x);
+      const resultContainer = document.getElementById("resultContainer");
+      resultContainer.innerHTML = '<h2 style="text-align: center; background-color: rgb(255, 188, 188); padding: 10px;"> Result is: ' + res + '</h2>';
+    }
+  </script>
+</body>
+</html>

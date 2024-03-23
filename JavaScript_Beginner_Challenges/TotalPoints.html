@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Total Points</title>
+</head>
+<body>
+  <div style="text-align: center;">
+    <h1 style="background-color:rgb(94, 94, 93);">Total Points</h1>
+    <label for="inputArray">Enter elements of the array separated by commas (,):</label>
+    <input type="text" id="inputArray">
+    <button onclick="calculatePoints()">Calculate Total Points</button>
+    <div id="resultContainer" style="background-color: rgb(255, 188, 188); margin-top: 20px; padding: 10px;"></div>
+  </div>
+
+  <script>
+    function games(arr) {
+      let total = 0;
+      for (let i = 0; i < arr.length; i++) {
+        const val = arr[i];
+        const parts = val.split(":");
+        const x = parseInt(parts[0]);
+        const y = parseInt(parts[1]);
+        if (x > y) {
+          total += 3;
+        } else if (x === y) {
+          total += 1;
+        }
+      }
+      return total;
+    }
+
+    function calculatePoints() {
+      const inputElement = document.getElementById('inputArray');
+      const inputString = inputElement.value;
+      const array = inputString.split(",");
+      const totalPoints = games(array);
+      const resultContainer = document.getElementById('resultContainer');
+      resultContainer.innerHTML = '<h2 style="text-align: center;">Total Points: ' + totalPoints + '</h2>';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Summation</title>
+</head>
+<body>
+  <div style="text-align: center;">
+    <h1 style="background-color:rgb(102, 102, 101);">SUMMATION</h1>
+    <label for="inputNumber">Enter the Number:</label>
+    <input type="number" id="inputNumber">
+    <button onclick="calculateSum()">Calculate Summation</button>
+    <div id="resultContainer" style="background-color: rgb(255, 188, 188); margin-top: 20px; padding: 10px;"></div>
+  </div>
+
+  <script>
+    function calculateSum() {
+      var inputElement = document.getElementById('inputNumber');
+      var num = parseInt(inputElement.value);
+
+      function summation(num) {
+        var i = 1;
+        let sum = 0;
+        while (i <= num) {
+          sum = sum + i;
+          i++;
+        }
+        return sum;
+      }
+
+      var result = summation(num);
+      var resultContainer = document.getElementById('resultContainer');
+      resultContainer.innerHTML = '<h2 style="text-align: center;">Result is: ' + result + '</h2>';
+    }
+  </script>
+</body>
+</html>

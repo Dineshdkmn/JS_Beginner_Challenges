@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum Of Positive Element in Array</title>
+</head>
+<body>
+  <div style="text-align: center;">
+    <h1 style="background-color:rgb(93, 93, 93);">Sum Of Positive Element in Array</h1>
+    <label for="inputArray">Enter elements of the array separated by commas (,):</label>
+    <input type="text" id="inputArray">
+    <button onclick="calculateSum()">Calculate Sum</button>
+    <div id="resultContainer" style="background-color: rgb(255, 188, 188); margin-top: 20px; padding: 10px;"></div>
+  </div>
+
+  <script>
+    function Sum(arr) {
+      if (arr.length === 0) {
+        return "Array is empty";
+      }
+      let res = 0;
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > 0) {
+          res += arr[i];
+        }
+      }
+      return res;
+    }
+
+    function calculateSum() {
+      const inputElement = document.getElementById('inputArray');
+      const arrayStr = inputElement.value;
+      const array = arrayStr.split(",").map(Number);
+      const sum = Sum(array);
+      const resultContainer = document.getElementById('resultContainer');
+      resultContainer.innerHTML = '<h2 style="text-align: center;">Result is: ' + sum + '</h2>';
+    }
+  </script>
+</body>
+</html>

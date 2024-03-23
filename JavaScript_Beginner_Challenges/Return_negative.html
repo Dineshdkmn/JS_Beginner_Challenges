@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Return Negative</title>
+</head>
+<body>
+  <div style="text-align: center;">
+    <h1 style="background-color:rgb(112, 111, 110);">RETURN NEGATIVE</h1>
+    <label for="inputNumber">Enter the Number:</label>
+    <input type="number" id="inputNumber">
+    <button onclick="returnNegative()">Return Negative</button>
+    <div id="resultContainer" style="background-color: rgb(255, 188, 188); margin-top: 20px; padding: 10px;"></div>
+  </div>
+
+  <script>
+    function returnNegative() {
+      var inputElement = document.getElementById('inputNumber');
+      var num = parseInt(inputElement.value);
+
+      function negative(num) {
+        if (num < 0) {
+          return num;
+        }
+        return num * -1;
+      }
+
+      var result = negative(num);
+      var resultContainer = document.getElementById('resultContainer');
+      resultContainer.innerHTML = '<h2 style="text-align: center;">Result is: ' + result + '</h2>';
+    }
+  </script>
+</body>
+</html>

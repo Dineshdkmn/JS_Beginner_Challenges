@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Century from year</title>
+</head>
+<body>
+  <div style="width: 50%; margin: auto;">
+    <h1 style="background-color:rgb(138, 138, 137); text-align: center;">CENTURY FROM YEAR</h1>
+    <div>
+      <label for="yearInput">Enter the year:</label>
+      <input type="number" id="yearInput" placeholder="Enter the year">
+      <button onclick="calculateCentury()">Calculate</button>
+    </div>
+    <div id="resultContainer" style="margin-top: 20px;"></div>
+  </div>
+
+  <script>
+    function century(code) {
+      if (code < 100) {
+        return 1;
+      }
+
+      const firstTwoDigits = code.toString().substr(0, 2);
+      if (code % 100 == 0) {
+        return parseInt(firstTwoDigits);
+      } else {
+        return parseInt(firstTwoDigits) + 1;
+      }
+    }
+
+    function calculateCentury() {
+      const yearInput = document.getElementById("yearInput");
+      const year = parseInt(yearInput.value);
+
+      if (isNaN(year) || year <= 0) {
+        alert("Please enter a valid positive year.");
+        return;
+      }
+
+      const result = century(year);
+      const resultContainer = document.getElementById("resultContainer");
+      resultContainer.innerHTML = '<h2 style="text-align: center; background-color: rgb(255, 188, 188); padding: 10px;">Century is: ' + result + '</h2>';
+    }
+  </script>
+</body>
+</html>

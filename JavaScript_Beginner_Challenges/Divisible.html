@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Divisible</title>
+</head>
+<body>
+    <div id="container" style="text-align: center;">
+        <h1 style="background-color:rgb(143, 142, 142);">Divisible by 2 numbers</h1>
+        <div>
+            <label for="numToDivide">Enter the number to be divided:</label>
+            <input type="number" id="numToDivide">
+        </div>
+        <div>
+            <label for="firstNum">Enter the first number:</label>
+            <input type="number" id="firstNum">
+        </div>
+        <div>
+            <label for="secondNum">Enter the second number:</label>
+            <input type="number" id="secondNum">
+        </div>
+        <button onclick="checkDivisibility()">Check Divisibility</button>
+        <div id="resultContainer"></div>
+    </div>
+
+    <script>
+        function checkDivisibility() {
+            const x = parseInt(document.getElementById("numToDivide").value);
+            const a = parseInt(document.getElementById("firstNum").value);
+            const b = parseInt(document.getElementById("secondNum").value);
+            const result = divide(x, a, b);
+            document.getElementById("resultContainer").innerHTML = '<h2 style="background-color: rgb(255, 188, 188); border: 20px;">Result is: ' + result + '</h2>';
+        }
+
+        function divide(x, a, b) {
+            if (x % a === 0 && x % b === 0) {
+                return x + ' is divisible by both ' + a + ' and ' + b;
+            }
+            else if (x % a == 0 && x % b != 0){
+                return x + ' is divisible by ' + a + ' but not by ' + b;
+            }
+            else if (x % a !=0 && x % b == 0){
+                return x + ' is divisible by ' + b + ' but not by ' + a;
+            }
+            return x + ' is not divisible by both ' + a + ' and ' + b;
+        }
+    </script>
+</body>
+</html>

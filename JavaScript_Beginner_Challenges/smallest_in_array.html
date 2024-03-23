@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smallest Integer in Array</title>
+</head>
+<body>
+  <div style="text-align: center;">
+    <h1 style="background-color:rgb(117, 117, 116);">SMALLEST ELEMENT IN ARRAY</h1>
+    <label for="inputArray">Enter elements of the array separated by commas (,):</label>
+    <input type="text" id="inputArray">
+    <button onclick="findAndDisplaySmallestElement()">Find Smallest Element</button>
+    <div id="resultContainer" style="background-color: rgb(255, 188, 188); margin-top: 20px; padding: 10px;"></div>
+  </div>
+
+  <script>
+    function findSmallestElement(arr) {
+      if (arr.length === 0) {
+        return "Array is empty";
+      }
+
+      let smallest = arr[0];
+
+      for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < smallest) {
+          smallest = arr[i];
+        }
+      }
+
+      return smallest;
+    }
+
+    function findAndDisplaySmallestElement() {
+      const inputElement = document.getElementById('inputArray');
+      const inputValues = inputElement.value.trim();
+
+      if (!inputValues) {
+        alert("Please enter valid elements for the array.");
+        return;
+      }
+
+      const array = inputValues.split(",").map(Number);
+      const smallestElement = findSmallestElement(array);
+
+      const resultContainer = document.getElementById('resultContainer');
+      resultContainer.innerHTML = '<h2 style="text-align: center;">Result is: ' + smallestElement + '</h2>';
+    }
+  </script>
+</body>
+</html>

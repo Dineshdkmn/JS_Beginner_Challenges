@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>String to Array</title>
+</head>
+<body>
+  <div style="text-align: center;">
+    <h1 style="background-color:rgb(125, 124, 123);">String to Array</h1>
+    <label for="inputString">Enter a long String:</label>
+    <input type="text" id="inputString">
+    <button onclick="convertToArray()">Convert to Array</button>
+    <div id="resultContainer" style="background-color: rgb(255, 188, 188); margin-top: 20px; padding: 10px;"></div>
+  </div>
+
+  <script>
+    function convertToArray() {
+      var inputElement = document.getElementById('inputString');
+      var inputString = inputElement.value;
+
+      function toArray(str) {
+        return str.split(" ");
+      }
+
+      var result = toArray(inputString);
+      var resultContainer = document.getElementById('resultContainer');
+      resultContainer.innerHTML = '<h2 style="text-align: center;">Result is: [' + result.join(', ') + ']</h2>';
+    }
+  </script>
+</body>
+</html>
+

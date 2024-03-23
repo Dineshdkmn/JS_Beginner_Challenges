@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>String Remove Spaces</title>
+</head>
+<body>
+  <div style="text-align: center;">
+    <h1 style="background-color:rgb(114, 114, 113);">String Remove Spaces</h1>
+    <label for="inputString">Enter a long String:</label>
+    <input type="text" id="inputString">
+    <button onclick="removeSpaces()">Remove Spaces</button>
+    <div id="resultContainer" style="background-color: rgb(255, 188, 188); margin-top: 20px; padding: 10px;"></div>
+  </div>
+
+  <script>
+    function removeSpaces() {
+      var inputElement = document.getElementById('inputString');
+      var str = inputElement.value;
+
+      function removeSpace(str) {
+        const arr = str.split(" ");
+        let a = [];
+        for (let i = 0; i < arr.length; i++) {
+          const temp = arr[i].trim();
+          a.push(temp);
+        }
+        const res = a.join("");
+        return res;
+      }
+
+      var result = removeSpace(str);
+      var resultContainer = document.getElementById('resultContainer');
+      resultContainer.innerHTML = '<h2 style="text-align: center;">Result is: ' + result + '</h2>';
+    }
+  </script>
+</body>
+</html>

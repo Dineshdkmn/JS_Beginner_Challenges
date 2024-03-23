@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hero and Dragons</title>
+</head>
+<body>
+    <div id="container" style="text-align: center;">
+        <h1 style="background-color:rgb(137, 136, 135);">HERO AND DRAGONS</h1>
+        <div>
+            <label for="inputBulletsDragons">Enter the number of bullets and dragons separated by commas (,):</label>
+            <input type="text" id="inputBulletsDragons">
+            <button onclick="checkOutcome()">Check Outcome</button>
+        </div>
+        <div id="resultContainer"></div>
+    </div>
+
+    <script>
+        function checkOutcome() {
+            const input = document.getElementById("inputBulletsDragons").value;
+            const array = input.split(",").map(Number);
+            const result = hero(array);
+            let outcomeMessage;
+            if (result) {
+                outcomeMessage = "Hero won";
+            } else {
+                outcomeMessage = "Dragons won";
+            }
+            document.getElementById("resultContainer").innerHTML = '<h2 style="background-color: rgb(255, 188, 188); border: 20px;">Result is: ' + outcomeMessage + '</h2>';
+        }
+
+        function hero(arr) {
+            return arr[0] / arr[1] >= 2;
+        }
+    </script>
+</body>
+</html>

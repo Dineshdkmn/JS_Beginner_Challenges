@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Double the Elements in Array</title>
+</head>
+<body>
+    <div id="container" style="text-align: center;">
+        <h1 style="background-color:rgb(119, 118, 117);">DOUBLE THE ELEMENTS IN ARRAY</h1>
+        <div>
+            <label for="arrayInput">Enter elements of the array separated by commas (,):</label>
+            <input type="text" id="arrayInput">
+            <button onclick="doubleArray()">Double Array Elements</button>
+        </div>
+        <div id="resultContainer"></div>
+    </div>
+
+    <script>
+        function doubleArray() {
+            const input = document.getElementById("arrayInput").value;
+            const array = input.split(",").map(Number);
+            const res = double(array);
+            document.getElementById("resultContainer").innerHTML = '<h2 style="background-color: rgb(255, 188, 188); border: 20px;">Result is: ' + res + '</h2>';
+        }
+
+        function double(arr) {
+            if (arr.length === 0) {
+                return "Array is empty";
+            }
+            for (let i = 0; i < arr.length; i++) {
+                arr[i] *= 2;
+            }
+            return arr;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Average in Array</title>
+</head>
+<body>
+  <div style="width: 50%; margin: auto;">
+    <h1 style="background-color:rgb(116, 115, 114); text-align: center;">AVERAGE IN ARRAY</h1>
+    <div style="margin-bottom: 20px;">
+      <label for="inputArray">Enter elements of the array separated by commas (,):</label>
+      <input type="text" id="inputArray" placeholder="e.g., 1,2,3,4,5">
+    </div>
+    <button onclick="calculateAverage()">Calculate Average</button>
+    <div id="resultContainer" style="margin-top: 20px;"></div>
+  </div>
+
+  <script>
+    function findAverage(arr) {
+      if (arr.length === 0) {
+        return "Array is empty";
+      }
+
+      let sum = 0;
+      for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+      }
+
+      return sum / arr.length;
+    }
+
+    function calculateAverage() {
+      const inputElement = document.getElementById("inputArray");
+      const input = inputElement.value.trim();
+      const array = input.split(",").map(Number);
+      const average = findAverage(array);
+      const resultContainer = document.getElementById("resultContainer");
+      resultContainer.innerHTML = '<h2 style="text-align: center; background-color: rgb(255, 188, 188); padding: 10px;">Result is: ' + average + '</h2>';
+    }
+  </script>
+</body>
+</html>
